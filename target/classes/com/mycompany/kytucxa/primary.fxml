@@ -9,22 +9,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="357.0" prefWidth="428.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mycompany.kytucxa.PrimaryController">
+<VBox alignment="CENTER" fillWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="414.0" spacing="20.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mycompany.kytucxa.PrimaryController">
   <children>
     <Label text="KÝ TÚC XÁ ZOO HOME" />
     <HBox alignment="CENTER" prefHeight="43.0" prefWidth="388.0">
       <children>
-        <Label text="UserName" />
-        <TextField prefWidth="200.0" />
+        <Label text="Tên đăng nhập" />
+        <TextField id="username" fx:id="userName" prefWidth="200.0" HBox.hgrow="NEVER">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </TextField>
       </children>
     </HBox>
     <HBox alignment="CENTER" prefHeight="43.0" prefWidth="388.0">
       <children>
-        <Label text="Passwork" />
-        <PasswordField prefWidth="200.0" />
+        <Label text="Mật khẩu" />
+        <PasswordField fx:id="password" prefWidth="200.0">
+          <HBox.margin>
+            <Insets left="45.0" />
+          </HBox.margin>
+        </PasswordField>
       </children>
     </HBox>
-    <Button mnemonicParsing="false" onAction="#switchToSecondary" text="Login" />
+    <Button cancelButton="false" defaultButton="true" mnemonicParsing="false" onAction="#switchToSecondary" text="Đăng nhập" />
   </children>
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

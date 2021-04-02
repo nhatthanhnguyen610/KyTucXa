@@ -1,16 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.kytucxa.SecondaryController">
-    <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" text="Switch to Primary View" onAction="#switchToPrimary" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<AnchorPane blendMode="SRC_OVER" cache="false" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="927.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mycompany.kytucxa.SecondaryController">
+  <children>
+    <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="60.0" prefWidth="927.0" style="-fx-background-color:#123D5B&#10;" styleClass="null">
+      <children>
+        <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" prefWidth="256.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="QUẢN LÍ TÌNH TRẠNG PHÒNG" textFill="WHITE">
+          <font>
+            <Font name="System Bold" size="15.0" fx:id="x1" />
+          </font>
+        </Button>
+        <Button font="$x1" layoutX="290.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="KHO THỰC PHẨM" textFill="WHITE" />
+        <Button layoutX="819.0" layoutY="18.0" mnemonicParsing="false" text="Đăng xuất" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="0.0" layoutY="60.0" prefHeight="498.9999000000025" prefWidth="927.0" style="-fx-background-color:#155479&#10;">
+      <children>
+        <VBox alignment="CENTER" layoutX="7.0" layoutY="14.0" prefHeight="471.0" prefWidth="229.0" style="-fx-background-color:#123D5B">
+          <children>
+            <Button font="$x1" mnemonicParsing="false" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Khu nam" textFill="WHITE" />
+            <Button font="$x1" mnemonicParsing="false" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Khu nữ" textFill="WHITE">
+              <VBox.margin>
+                <Insets top="5.0" />
+              </VBox.margin>
+            </Button>
+            <Accordion expandedPane="$null" />
+          </children>
+        </VBox>
+        <AnchorPane layoutX="244.0" layoutY="14.0" prefHeight="485.0" prefWidth="683.0" style="-fx-background-color:#123D5B">
+          <children>
+            <AnchorPane layoutX="0.0" layoutY="68.0" prefHeight="403.0" prefWidth="669.0" style="-fx-background-color:#FFFFFF" visible="true">
+              <children>
+                <AnchorPane layoutX="-1.0" layoutY="34.0" prefHeight="31.0" prefWidth="669.0" style="-fx-border-width: 1px;&#10;-fx-border-color: black;" />
+                <VBox alignment="CENTER" layoutX="26.0" layoutY="79.0" prefHeight="133.0" prefWidth="100.0">
+                  <children>
+                    <ImageView disable="false" fitHeight="100.0" fitWidth="100.0" focusTraversable="false" pickOnBounds="true" preserveRatio="false" smooth="false" style="" visible="true">
+                      <image>
+                        <Image url="@../../../../../pic/bed.jpg" />
+                      </image>
+                    </ImageView>
+                    <Label style="-fx-background-color: Green&#10;" text="Phòng 101" />
+                  </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="148.0" layoutY="79.0" prefHeight="133.0" prefWidth="100.0">
+                  <children>
+                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="false" smooth="false" style="">
+                      <image>
+                        <Image url="@../../../../../pic/bed.jpg" />
+                      </image>
+                    </ImageView>
+                    <Label style="-fx-background-color: #7D7D7D" text="Phòng 102" />
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+            <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="31.0" prefWidth="669.0" style="-fx-background-color:#DFBEBE">
+              <children>
+                <Label font="$x1" layoutX="38.0" layoutY="4.0" text="Đến hạng thanh toán" textFill="#f35e5e" />
+              </children>
+            </AnchorPane>
+            <Text fill="WHITE" font="$x1" layoutX="14.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DANH SÁCH PHÒNG" />
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+  </children>
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+</AnchorPane>
