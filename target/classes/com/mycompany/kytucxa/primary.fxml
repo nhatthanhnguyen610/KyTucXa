@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="357.0" prefWidth="428.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mycompany.kytucxa.PrimaryController">
+  <children>
+    <Label text="KÝ TÚC XÁ ZOO HOME" />
+    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="388.0">
+      <children>
+        <Label text="UserName" />
+        <TextField prefWidth="200.0" />
+      </children>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="388.0">
+      <children>
+        <Label text="Passwork" />
+        <PasswordField prefWidth="200.0" />
+      </children>
+    </HBox>
+    <Button mnemonicParsing="false" onAction="#switchToSecondary" text="Login" />
+  </children>
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+</VBox>
