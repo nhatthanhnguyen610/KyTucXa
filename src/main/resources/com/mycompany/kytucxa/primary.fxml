@@ -1,40 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" fillWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="414.0" spacing="20.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mycompany.kytucxa.PrimaryController">
+<AnchorPane blendMode="SRC_OVER" cache="false" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="927.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mycompany.kytucxa.PrimaryController">
   <children>
-    <Label text="KÝ TÚC XÁ ZOO HOME" />
-    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="388.0">
+    <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="60.0" prefWidth="927.0" style="-fx-background-color:#123D5B&#10;" styleClass="null">
       <children>
-        <Label text="Tên đăng nhập" />
-        <TextField id="username" fx:id="userName" prefWidth="200.0" HBox.hgrow="NEVER">
-          <HBox.margin>
-            <Insets left="10.0" />
-          </HBox.margin>
-        </TextField>
+        <Text fill="WHITE" layoutX="302.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KÝ TÚC XÁ ZOO HOME" textAlignment="CENTER">
+          <font>
+            <Font name="System Bold" size="30.0" />
+          </font>
+        </Text>
       </children>
-    </HBox>
-    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="388.0">
+    </AnchorPane>
+    <AnchorPane layoutX="1.0" layoutY="60.0" prefHeight="499.0" prefWidth="927.0" style="-fx-background-color:#155479&#10;">
       <children>
-        <Label text="Mật khẩu" />
-        <PasswordField fx:id="password" prefWidth="200.0">
-          <HBox.margin>
-            <Insets left="45.0" />
-          </HBox.margin>
-        </PasswordField>
+        <VBox alignment="CENTER" layoutX="7.0" layoutY="14.0" prefHeight="471.0" prefWidth="229.0" style="-fx-background-color:#123D5B">
+          <children>
+            <Button id="selectNu" mnemonicParsing="false" onAction="#trangDangNhap" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Người quản lí" textFill="WHITE">
+              <font>
+                <Font name="System Bold" size="15.0" fx:id="x1" />
+              </font>
+            </Button>
+            <Button id="selectNu" font="$x1" mnemonicParsing="false" onAction="#trangDangKy" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Người thuê phòng" textFill="WHITE">
+              <VBox.margin>
+                <Insets top="5.0" />
+              </VBox.margin>
+            </Button>
+          </children>
+        </VBox>
+        <AnchorPane layoutX="244.0" layoutY="14.0" prefHeight="471.0" prefWidth="669.0" style="-fx-background-color:#123D5B">
+          <children>
+            <AnchorPane disable="false" layoutX="1.0" layoutY="68.0" prefHeight="404.0" prefWidth="667.0" style="-fx-background-color:#FFFFFF" visible="true">
+              <children>
+                <VBox visible="false"  fx:id="lbDangNhap" alignment="CENTER" layoutX="164.0" layoutY="32.0" prefHeight="340.0" prefWidth="339.0">
+                  <children>
+                    <HBox alignment="CENTER" prefHeight="52.0" prefWidth="242.0">
+                      <children>
+                        <Label text="Tên đăng nhập:" />
+                        <TextField fx:id="userName" prefWidth="200.0">
+                          <HBox.margin>
+                            <Insets left="30.0" />
+                          </HBox.margin>
+                        </TextField>
+                      </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="52.0" prefWidth="242.0">
+                      <children>
+                        <Label text="Mật khẩu:" />
+                        <PasswordField fx:id="password" prefWidth="200.0">
+                          <HBox.margin>
+                            <Insets left="65.0" />
+                          </HBox.margin>
+                        </PasswordField>
+                      </children>
+                    </HBox>
+                    <Button defaultButton="true" mnemonicParsing="false" onAction="#switchToSecondary" text="Đăng nhập" />
+                  </children>
+                </VBox>
+                <HBox fx:id="lbDangKy" layoutX="14.0" layoutY="14.0" prefHeight="374.9999000000025" prefWidth="639.0">
+                  <children>
+                    <VBox prefHeight="375.0" prefWidth="323.642578125">
+                      <children>
+                        <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
+                          <children>
+                            <Label text="Họ và tên:" />
+                            <TextField prefWidth="200.0" />
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
+                          <children>
+                            <Label text="Ngày sinh:" />
+                            <ChoiceBox prefWidth="53.5">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                            </ChoiceBox>
+                            <ChoiceBox prefWidth="53.5">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                            </ChoiceBox>
+                            <ChoiceBox prefWidth="73.0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                            </ChoiceBox>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
+                          <children>
+                            <Label text="CMND:" />
+                            <TextField prefWidth="200.0" />
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
+                          <children>
+                            <Label text="Số điện thoại:" />
+                            <TextField prefWidth="200.0" />
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
+                          <children>
+                            <Label text="Quê quán:" />
+                            <TextField prefWidth="200.0" />
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                    <VBox prefHeight="375.0" prefWidth="315.0" />
+                  </children>
+                </HBox>
+              </children>
+            </AnchorPane>
+            <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="31.0" prefWidth="669.0000999999975" style="-fx-background-color:#DFBEBE" />
+          </children>
+        </AnchorPane>
       </children>
-    </HBox>
-    <Button cancelButton="false" defaultButton="true" mnemonicParsing="false" onAction="#switchToSecondary" text="Đăng nhập" />
+    </AnchorPane>
   </children>
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
-</VBox>
+</AnchorPane>
