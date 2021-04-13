@@ -12,24 +12,26 @@ import java.util.Date;
  * @author Admin
  */
 public class SinhVien {
-    private int id;
+    private int idSinhVien;
     private String name;
     private String gioiTinh;
     private Date ngaySinh;
     private Date ngayNhanPhong;
+    private int idPhong;
+    
 
     /**
      * @return the id
      */
-    public int getId() {
-        return id;
+    public int getIdSinhVien() {
+        return idSinhVien;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSinhVien(int id) {
+        this.idSinhVien = idSinhVien;
     }
 
     /**
@@ -86,6 +88,20 @@ public class SinhVien {
      */
     public void setNgayNhanPhong(Date ngayNhanPhong) {
         this.ngayNhanPhong = ngayNhanPhong;
+    }
+
+    /**
+     * @return the idPhong
+     */
+    public int getIdPhong() {
+        return idPhong;
+    }
+
+    /**
+     * @param idPhong the idPhong to set
+     */
+    public void setIdPhong(int idPhong) {
+        this.idPhong = idPhong;
     }
     
     
