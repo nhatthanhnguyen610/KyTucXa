@@ -1,6 +1,15 @@
 package com.mycompany.kytucxa;
 
+import com.dht.pojo.NguoiDangKi;
+import com.dht.service.JdbcUtils;
+import com.dht.service.NguoiDangKiService;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -38,5 +47,10 @@ public class PrimaryController {
         }
             
     }
+    
+    public void addNguoiDangKi(ActionEvent evt){
+       
+    }
+    
     
 }

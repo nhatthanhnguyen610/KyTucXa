@@ -62,4 +62,14 @@ public class SinhVienService {
         
         return row > 0;
     }
+     
+     public boolean deleleSinhVien(int idSinhVien) throws SQLException {
+        String sql = "DELETE FROM sinhvien WHERE idsinhvien=?";
+        PreparedStatement stm = this.conn.prepareStatement(sql);
+        stm.setInt(1, idSinhVien);
+        
+        int row = stm.executeUpdate();
+        
+        return row > 0;
+    }
 }
