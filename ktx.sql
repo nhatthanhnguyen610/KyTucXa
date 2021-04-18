@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `danhsachdangki`
+--
+
+DROP TABLE IF EXISTS `danhsachdangki`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `danhsachdangki` (
+  `iddangki` int NOT NULL,
+  `hoten` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `ngaysinh` datetime NOT NULL,
+  `cmnd` varchar(9) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `sdt` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `quequan` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  PRIMARY KEY (`iddangki`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `danhsachdangki`
+--
+
+LOCK TABLES `danhsachdangki` WRITE;
+/*!40000 ALTER TABLE `danhsachdangki` DISABLE KEYS */;
+/*!40000 ALTER TABLE `danhsachdangki` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `hoadon`
 --
 
@@ -105,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-13 17:04:15
+-- Dump completed on 2021-04-18 21:39:31
