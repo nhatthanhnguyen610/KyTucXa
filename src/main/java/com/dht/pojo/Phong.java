@@ -11,50 +11,51 @@ package com.dht.pojo;
  */
 public class Phong {
     private int idphong;
-    private String tenPhong;
-    private String loaiPhong;
+    private String tenphong;
+    private String loaiphong;
+    
+    public Phong(){
+        
+    }
+    
+    public Phong(String name, String loaiPhong){
+        this.tenphong = name;
+        this.loaiphong = loaiPhong;
+    }
+    
+    public Phong(int id, String name, String loaiPhong){
+        this.idphong = id;
+        this.tenphong = name;
+        this.loaiphong = loaiPhong;
+    }
 
-    /**
-     * @return the idphong
-     */
     public int getIdphong() {
         return idphong;
     }
 
-    /**
-     * @param idphong the idphong to set
-     */
     public void setIdphong(int idphong) {
         this.idphong = idphong;
     }
 
-    /**
-     * @return the tenPhong
-     */
-    public String getTenPhong() {
-        return tenPhong;
+    public String getTenphong() {
+        return tenphong;
     }
 
-    /**
-     * @param tenPhong the tenPhong to set
-     */
-    public void setTenPhong(String tenPhong) {
-        this.tenPhong = tenPhong;
+    public void setTenphong(String tenphong) {
+        this.tenphong = tenphong;
     }
 
-    /**
-     * @return the loaiPhong
-     */
-    public String getLoaiPhong() {
-        return loaiPhong;
+    public String getLoaiphong() {
+        return loaiphong;
     }
 
-    /**
-     * @param loaiPhong the loaiPhong to set
-     */
-    public void setLoaiPhong(String loaiPhong) {
-        this.loaiPhong = loaiPhong;
+    public void setLoaiphong(String loaiphong) {
+        this.loaiphong = loaiphong;
     }
-    
+
+   public String toString() {
+        String result = String.format("[%d] %s: %s", this.idphong, this.tenphong,this.loaiphong);
+        return result;
+    }
     
 }

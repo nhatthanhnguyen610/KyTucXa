@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.kytucxa.HoaDonController">
+   <children>
+      <Label alignment="CENTER" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #123D5B;" text="HÓA ĐƠN THANH TOÁN" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="111.0" prefHeight="25.0" prefWidth="101.0" text="Tên sinh viên:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="163.0" prefHeight="25.0" prefWidth="101.0" text="Tiền phòng:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="218.0" prefHeight="25.0" prefWidth="101.0" text="Tiền điện:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="276.0" prefHeight="25.0" prefWidth="101.0" text="Tiền nước:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="330.0" prefHeight="25.0" prefWidth="101.0" text="Tổng cộng:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button defaultButton="true" layoutX="166.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="OK" />
+      <Button defaultButton="true" layoutX="328.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Cancel" />
+      <Label fx:id="lbTienPhong" disable="true" layoutX="235.0" layoutY="158.0" prefHeight="17.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTenSV" disable="true" layoutX="235.0" layoutY="104.0" prefHeight="17.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTienDien" disable="true" layoutX="235.0" layoutY="212.0" prefHeight="17.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTong" disable="true" layoutX="235.0" layoutY="328.0" prefHeight="17.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTienNuoc" disable="true" layoutX="235.0" layoutY="275.0" prefHeight="17.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

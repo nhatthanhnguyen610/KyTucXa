@@ -5,6 +5,7 @@
  */
 package com.dht.service;
 
+import com.dht.pojo.Phong;
 import com.dht.pojo.SinhVien;
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,64 +13,96 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Admin
  */
 public class SinhVienService {
-    private Connection conn;
-
-    public SinhVienService(Connection conn) {
-        this.conn = conn;
-    }
     
-    public List<SinhVien> getProducts(String kw) throws SQLException {
-        if (kw == null)
-            throw new SQLDataException();
+    public static List <SinhVien> getSinhVien(String kw) throws SQLException{
         
-        String sql = "SELECT * FROM product WHERE name like concat('%', ?, '%')";
-        PreparedStatement stm = this.conn.prepareStatement(sql);
-        stm.setString(1, kw);
+        Connection conn = Utils.getConn();
+        String sql = "SELECT * FROM sinhvien";
+        if(kw!=null && !kw.trim().isEmpty())
+            sql += " Where idsinhvien like ?";
+        
+        PreparedStatement stm = conn.prepareStatement(sql);
+        
+        if (kw != null && !kw.trim().isEmpty())
+            stm.setString(1, String.format("%%%s%%", kw.trim()));
         
         ResultSet rs = stm.executeQuery();
-        List<SinhVien> products = new ArrayList<>();
-        while (rs.next()) {
-            SinhVien p = new SinhVien();
-            p.setIdSinhVien(rs.getInt("id"));
-            p.setName(rs.getString("tensv"));
-            p.setGioiTinh(rs.getString("gioitinh"));
-            p.setNgaySinh(rs.getDate("ngaysinh"));
-            p.setNgayNhanPhong(rs.getDate("ngaynhanphong"));
-            p.setIdPhong(rs.getInt("idphong"));
-            
-            products.add(p);
-        }
-        return products;
+        
+        List <SinhVien> listSinhVien = new ArrayList();
+       while(rs.next()){
+           int id =  rs.getInt("idsinhvien");
+           String name = rs.getString("tensv");
+           String gioiTinh = rs.getString("gioitinh");
+           Date ngaySinh = rs.getObject("ngaysinh", Date.class);
+           Date ngayNhanPhong = rs.getObject("ngaynhanphong", Date.class);
+           int idphong = rs.getInt("idphong");
+           SinhVien x = new SinhVien(id, name, gioiTinh, ngaySinh, ngayNhanPhong,PhongService.getPhongByID(idphong));
+           listSinhVien.add(x);
+       }
+       return listSinhVien;
+       
     }
-    
-     public boolean addSinhVien(SinhVien p) throws SQLException {
-        String sql = "INSERT INTO product(name, gioiTinh, ngayNhanPhong, idPhong) VALUES(?, ?, ?, ?)";
-        PreparedStatement stm = this.conn.prepareStatement(sql);
-        stm.setString(1, p.getName());
-        stm.setString(2, p.getGioiTinh());
-        stm.setDate(3, (Date) p.getNgayNhanPhong());
-        stm.setInt(4,p.getIdPhong());
+     public static boolean addSinhVien(SinhVien sv) throws SQLException {
+        Connection conn = Utils.getConn();
+        String sql = "INSERT INTO sinhvien(idsinhvien, tensv, gioitinh, ngaysinh, ngaynhanphong, idphong) VALUES(?, ?, ?, ?, ?, ?)";
+        try {
+            conn.setAutoCommit(false);
+            PreparedStatement stm = conn.prepareStatement(sql);
+            
+            stm.setInt(1, sv.getIdsinhvien());
+            stm.setString(2,sv.getTensv());
+            stm.setString(3, sv.getGioitinh());
+            stm.setDate(4, (Date) sv.getNgaysinh());
+            stm.setDate(5, (Date) sv.getNgaynhanphong());
+            stm.setInt(6, sv.getPhong().getIdphong());
+            int execute = stm.executeUpdate();
+             
+            
+            conn.commit();
+            return execute > 0 ;
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+     
+     public static boolean deleleSinhVien(String idSinhVien) throws SQLException {
+        Connection conn = Utils.getConn();
+        
+        String sql = "DELETE FROM sinhvien WHERE idsinhvien=?";
+        PreparedStatement stm = conn.prepareStatement(sql);
+        stm.setString(1, idSinhVien);
         
         int row = stm.executeUpdate();
         
         return row > 0;
     }
      
-     public boolean deleleSinhVien(int idSinhVien) throws SQLException {
-        String sql = "DELETE FROM sinhvien WHERE idsinhvien=?";
-        PreparedStatement stm = this.conn.prepareStatement(sql);
-        stm.setInt(1, idSinhVien);
-        
-        int row = stm.executeUpdate();
-        
-        return row > 0;
-    }
+     public static SinhVien getSinhVienByID(int id) throws SQLException{
+         Connection conn = Utils.getConn();
+        String sql = "Select * From sinhvien WHERE idsinhvien = ?";
+        PreparedStatement stm = conn.prepareStatement(sql);
+        stm.setInt(1, id);
+        ResultSet rs = stm.executeQuery();
+        while(rs.next()){  
+            SinhVien sv = new SinhVien( rs.getInt("idsinhvien"),rs.getString("tensv"),
+            rs.getString("gioitinh"), rs.getDate("ngaysinh"), rs.getDate("ngaynhanphong"), 
+                    PhongService.getPhongByID(rs.getInt("idphong")));
+            return sv;
+        }
+        return null;
+     }
+     
+     
 }

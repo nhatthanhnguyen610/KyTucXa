@@ -12,96 +12,91 @@ import java.util.Date;
  * @author Admin
  */
 public class SinhVien {
-    private int idSinhVien;
-    private String name;
-    private String gioiTinh;
-    private Date ngaySinh;
-    private Date ngayNhanPhong;
-    private int idPhong;
+    private int idsinhvien;
+    private String tensv;
+    private String gioitinh;
+    private Date ngaysinh;
+    private Date ngaynhanphong;
+    private Phong phong;
     
-
-    /**
-     * @return the id
-     */
-    public int getIdSinhVien() {
-        return idSinhVien;
+    public SinhVien(){
+        
+    }
+    
+    public SinhVien(int idsv, String tensv){
+        this.idsinhvien = idsv;
+        this.tensv = tensv;
+    }
+    
+    public SinhVien(int idsv, String name, String gioiTinh, Date ngaySinh, Date ngayNhanPhong, Phong phong){
+        this.idsinhvien = idsv;
+        this.tensv = name;
+        this.gioitinh = gioiTinh;
+        this.ngaysinh = ngaySinh;
+        this.ngaynhanphong = ngayNhanPhong;
+        this.phong = phong;
+    }
+    
+    public SinhVien(int idsv, String name, String gioiTinh, Date ngaySinh, Date ngayNhanPhong){
+        this.idsinhvien = idsv;
+        this.tensv = name;
+        this.gioitinh = gioiTinh;
+        this.ngaysinh = ngaySinh;
+        this.ngaynhanphong = ngayNhanPhong;
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setIdSinhVien(int id) {
-        this.idSinhVien = idSinhVien;
+    public int getIdsinhvien() {
+        return idsinhvien;
     }
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
+    public void setIdsinhvien(int idsinhvien) {
+        this.idsinhvien = idsinhvien;
     }
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public String getTensv() {
+        return tensv;
     }
 
-    /**
-     * @return the gioiTinh
-     */
-    public String getGioiTinh() {
-        return gioiTinh;
+    public void setTensv(String tensv) {
+        this.tensv = tensv;
     }
 
-    /**
-     * @param gioiTinh the gioiTinh to set
-     */
-    public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh = gioiTinh;
+ 
+    public Date getNgaysinh() {
+        return ngaysinh;
     }
 
-    /**
-     * @return the ngaySinh
-     */
-    public Date getNgaySinh() {
-        return ngaySinh;
+    public void setNgaysinh(Date ngaysinh) {
+        this.ngaysinh = ngaysinh;
     }
 
-    /**
-     * @param ngaySinh the ngaySinh to set
-     */
-    public void setNgaySinh(Date ngaySinh) {
-        this.ngaySinh = ngaySinh;
+    public Date getNgaynhanphong() {
+        return ngaynhanphong;
     }
 
-    /**
-     * @return the ngayNhanPhong
-     */
-    public Date getNgayNhanPhong() {
-        return ngayNhanPhong;
+    public void setNgaynhanphong(Date ngaynhanphong) {
+        this.ngaynhanphong = ngaynhanphong;
     }
 
-    /**
-     * @param ngayNhanPhong the ngayNhanPhong to set
-     */
-    public void setNgayNhanPhong(Date ngayNhanPhong) {
-        this.ngayNhanPhong = ngayNhanPhong;
+    public Phong getPhong() {
+        return phong;
     }
 
-    /**
-     * @return the idPhong
-     */
-    public int getIdPhong() {
-        return idPhong;
+    public void setPhong(Phong phong) {
+        this.phong = phong;
+    }
+     public String getGioitinh() {
+        return gioitinh;
     }
 
-    /**
-     * @param idPhong the idPhong to set
-     */
-    public void setIdPhong(int idPhong) {
-        this.idPhong = idPhong;
+    public void setGioitinh(String gioitinh) {
+        this.gioitinh = gioitinh;
+    }
+
+    @Override
+    public String toString() {
+        String result = String.format("[%d] %s", this.idsinhvien, this.tensv);
+        return result;
     }
     
     

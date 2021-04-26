@@ -1,7 +1,7 @@
 package com.mycompany.kytucxa;
 
 import com.dht.pojo.NguoiDangKi;
-import com.dht.service.JdbcUtils;
+import com.dht.service.Utils;
 import com.dht.service.NguoiDangKiService;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -38,7 +38,7 @@ public class PrimaryController {
     }
     public void switchToSecondary() throws IOException {
         if (userName.getText().equals("admin") && password.getText().equals("admin"))
-            App.setRoot("secondary");
+            App.setRoot("second");
         else
         {
             Alert a = new Alert(Alert.AlertType.WARNING);

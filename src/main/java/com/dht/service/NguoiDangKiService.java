@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,23 +20,26 @@ import java.sql.SQLException;
  */
 public class NguoiDangKiService {
     
-    private Connection conn; 
-    
-    public NguoiDangKiService(Connection conn) {
-        this.conn = conn;
-    }
-    
-     public boolean addNguoiDangKi(NguoiDangKi p) throws SQLException {
-        String sql = "INSERT INTO dannhsachdangki(hoten, ngaysinh, CMND, SDT, queQuan) VALUES(?, ?, ?, ?, ?)";
-        PreparedStatement stm = this.conn.prepareStatement(sql);
-        stm.setString(1, p.getHoTen());
-        stm.setDate(2, (Date) p.getNgaySinh());
-        stm.setString(3, p.getCMND() );
-        stm.setString(4, p.getSDT() );
-        stm.setString(5, p.getQueQuan() );
-        
-        int row = stm.executeUpdate();
-        
-        return row > 0;
+    public static boolean addNguoiDangKi(NguoiDangKi ndk){
+        Connection conn = Utils.getConn();
+        try {
+            conn.setAutoCommit(false);
+            String sql = "INSERT INTO danhsachdangki(iddangki, hoten, nagysinh, cmnd, sdt, quequan)" + "Values(?,?,?,?,?,?)";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setInt(1,ndk.getIdNguoiDangKi());
+            stm.setString(2,ndk.getHoTen());
+            stm.setDate(3, (Date) ndk.getNgaySinh());
+            stm.setString(4, ndk.getCMND());
+            stm.setString(5, ndk.getSDT());
+            stm.setString(6, ndk.getQueQuan());
+            int executeUpdate = stm.executeUpdate();
+                
+            
+            conn.commit();
+            return executeUpdate > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(PhongService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

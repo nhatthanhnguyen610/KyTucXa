@@ -14,7 +14,22 @@ public class HoaDon {
     private double tienPhong;
     private double tienDien;
     private double tienNuoc;
-    private int idSinhVien;
+    private SinhVien sinhVien;
+    
+    public HoaDon(){
+        
+    }
+    
+
+    
+    public HoaDon(int idHoaDdon, double tienPhong, 
+            double tienDien, double tienNuoc, SinhVien sinhVien ){
+        this.idhoadon = idHoaDdon;
+        this.tienPhong = tienPhong;
+        this.tienDien = tienDien;
+        this.tienNuoc = tienNuoc;
+        this.sinhVien = sinhVien;
+    }
 
     /**
      * @return the idhoadon
@@ -73,18 +88,24 @@ public class HoaDon {
     }
 
     /**
-     * @return the idSinhVien
+     * @return the sinhVien
      */
-    public int getIdSinhVien() {
-        return idSinhVien;
+    public SinhVien getSinhVien() {
+        return sinhVien;
     }
 
     /**
-     * @param idSinhVien the idSinhVien to set
+     * @param sinhVien the sinhVien to set
      */
-    public void setIdSinhVien(int idSinhVien) {
-        this.idSinhVien = idSinhVien;
+    public void setSinhVien(SinhVien sinhVien) {
+        this.sinhVien = sinhVien;
     }
+
+    /**
+     * @return the idSinhVien
+     */
+    
+    
     
     
 }
