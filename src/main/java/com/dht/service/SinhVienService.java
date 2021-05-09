@@ -30,7 +30,7 @@ public class SinhVienService {
         Connection conn = Utils.getConn();
         String sql = "SELECT * FROM sinhvien";
         if(kw!=null && !kw.trim().isEmpty())
-            sql += " Where idsinhvien like ?";
+            sql += " Where tensv like ?";
         
         PreparedStatement stm = conn.prepareStatement(sql);
         
@@ -81,12 +81,20 @@ public class SinhVienService {
         Connection conn = Utils.getConn();
         
         String sql = "DELETE FROM sinhvien WHERE idsinhvien=?";
-        PreparedStatement stm = conn.prepareStatement(sql);
-        stm.setString(1, idSinhVien);
+         try {
+            conn.setAutoCommit(false);
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, idSinhVien);
+            if(stm.executeUpdate() == 1);
+            {
+             conn.commit();
+             return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SinhVienService.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        int row = stm.executeUpdate();
-        
-        return row > 0;
+      return false;
     }
      
      public static SinhVien getSinhVienByID(int id) throws SQLException{

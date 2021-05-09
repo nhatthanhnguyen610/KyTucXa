@@ -12,16 +12,34 @@ import java.util.Date;
  * @author Admin
  */
 public class NguoiDangKi {
-    private int idNguoiDangKi;
+    public int idNguoiDangKi;
     private String hoTen;
     private Date ngaySinh;
     private String CMND;
     private String SDT;
     private String queQuan;
-
+    
+    
+    public NguoiDangKi(String hoTen, Date ngaySinh, String CMND, String SDT, String queQuan){
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.CMND = CMND;
+        this.SDT = SDT;
+        this.queQuan = queQuan;
+    }
+    
+    public NguoiDangKi(int id, String hoTen, Date ngaySinh, String CMND, String SDT, String queQuan){
+        this.idNguoiDangKi = id;
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.CMND = CMND;
+        this.SDT = SDT;
+        this.queQuan = queQuan;
+    }
     /**
      * @return the idNguoiDangKi
      */
+    
     public int getIdNguoiDangKi() {
         return idNguoiDangKi;
     }

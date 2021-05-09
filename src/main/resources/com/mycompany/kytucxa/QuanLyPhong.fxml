@@ -29,8 +29,8 @@
                </image>
             </ImageView>
             <TableView fx:id="tablePhong" layoutX="-1.0" layoutY="86.0" prefHeight="341.0" prefWidth="683.0" />
-            <Button defaultButton="true" layoutX="157.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Delete" />
-            <Button defaultButton="true" layoutX="423.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Refresh" />
+            <Button defaultButton="true" layoutX="157.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#deletePhongHandler" prefHeight="25.0" prefWidth="80.0" text="Delete" />
+            <Button defaultButton="true" layoutX="423.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#refreshTableHandler" prefHeight="25.0" prefWidth="80.0" text="Refresh" />
          </children>
       </AnchorPane>
    </children>

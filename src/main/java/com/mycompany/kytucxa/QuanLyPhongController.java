@@ -39,6 +39,13 @@ public class QuanLyPhongController implements Initializable{
         } catch (SQLException ex) {
             Logger.getLogger(QuanLyPhongController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        txtFindPhong.textProperty().addListener(es ->{
+            try {
+                loadData(txtFindPhong.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(QuanLyPhongController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
     
     public void loadPhong(){
@@ -64,22 +71,29 @@ public class QuanLyPhongController implements Initializable{
     }
     
     public void deletePhongHandler(){
-        Phong phong = tablePhong.getSelectionModel().getSelectedItem();
-        String id = String.valueOf(phong.getIdphong());
-        String tenPhong = phong.getTenphong();
-        
+        Phong selectItem = tablePhong.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        
+        String id = String.valueOf(selectItem.getIdphong());
+        String tenPhong = selectItem.getTenphong();
+              
         alert.setContentText("Ban co muon xoa: ID=" + id + ", Ten:  " + tenPhong + "?");
         alert.showAndWait().ifPresent(res -> {
-            try{
+            try {
                 if(PhongService.delelePhong(id) == true){
-                    alert.setContentText("Xóa thành công");
-                    loadData("");
-                   }
-                else alert.setContentText("Xóa thất bại? dữ liệu sinh vien muốn xóa có thể đang được sử dụng");
-            }catch (SQLException ex) {
-               Logger.getLogger(QuanLyPhongController.class.getName()).log(Level.SEVERE, null, ex);
-           }
+                    alert.setContentText("Đã xóa thành công");
+                    try {
+                        loadData("");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(QuanLyPhongController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else
+                    alert.setContentText("Xóa thất bại?Dữ liệu trạm có thể đang được dùng");
+            } catch (SQLException ex) {
+                Logger.getLogger(QuanLyPhongController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            alert.show();
         });
     }
     

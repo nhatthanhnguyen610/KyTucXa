@@ -49,7 +49,7 @@ public class AddPhongController implements Initializable{
             if(PhongService.addPhong(phong) == true)
             {
                 
-                alert.setContentText("Đã thêm. Hay refresh lại quản lý trạm");
+                alert.setContentText("Đã thêm. Hay refresh lại quản lý phòng");
             }
             else alert.setContentText("Lỗi");
         }

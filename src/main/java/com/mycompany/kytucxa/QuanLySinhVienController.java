@@ -6,6 +6,7 @@
 package com.mycompany.kytucxa;
 
 import com.dht.pojo.SinhVien;
+import com.dht.service.PhongService;
 import com.dht.service.SinhVienService;
 import java.net.URL;
 import java.sql.Date;
@@ -121,20 +122,28 @@ public class QuanLySinhVienController implements Initializable{
 
     public void deleteSinhVienHandler(){
         SinhVien sv = tableSinhVien.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        
         String id = String.valueOf(sv.getIdsinhvien());
         String tensv = sv.getTensv();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        
         alert.setContentText("Ban co muon xoa: ID=" + id + ", Ten:  " + tensv + "?");
         alert.showAndWait().ifPresent(res -> {
-            try{
+            try {
                 if(SinhVienService.deleleSinhVien(id) == true){
-                    alert.setContentText("Xóa thành công");
-                    loadData("");
-                   }
-                else alert.setContentText("Xóa thất bại? dữ liệu sinh vien muốn xóa có thể đang được sử dụng");
-            }catch (SQLException ex) {
-               Logger.getLogger(QuanLySinhVienController.class.getName()).log(Level.SEVERE, null, ex);
-           }
+                    alert.setContentText("Đã xóa thành công");
+                    try {
+                        loadData("");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(QuanLySinhVienController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else
+                    alert.setContentText("Xóa thất bại?Dữ liệu sinh viên có thể đang được dùng");
+            } catch (SQLException ex) {
+                Logger.getLogger(QuanLySinhVienController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            alert.show();
         });
         
     }

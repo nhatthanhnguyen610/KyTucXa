@@ -43,7 +43,7 @@
           <children>
             <AnchorPane disable="false" layoutX="1.0" layoutY="68.0" prefHeight="404.0" prefWidth="667.0" style="-fx-background-color:#FFFFFF" visible="true">
               <children>
-                <VBox fx:id="lbDangNhap" alignment="CENTER" layoutX="164.0" layoutY="32.0" prefHeight="340.0" prefWidth="339.0">
+                <VBox fx:id="lbDangNhap" alignment="CENTER" layoutX="164.0" layoutY="32.0" prefHeight="340.0" prefWidth="339.0" visible="false">
                   <children>
                     <HBox alignment="CENTER" prefHeight="52.0" prefWidth="242.0">
                       <children>
@@ -68,14 +68,14 @@
                     <Button defaultButton="true" mnemonicParsing="false" onAction="#switchToSecondary" text="Đăng nhập" />
                   </children>
                 </VBox>
-                <HBox visible="false" fx:id="lbDangKy" layoutX="14.0" layoutY="14.0" prefHeight="374.9999000000025" prefWidth="639.0">
+                <HBox fx:id="lbDangKy" layoutX="14.0" layoutY="14.0" prefHeight="374.9999000000025" prefWidth="639.0">
                   <children>
-                    <VBox prefHeight="375.0" prefWidth="323.642578125">
+                    <VBox prefHeight="375.0" prefWidth="647.0">
                       <children>
                         <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
                           <children>
                             <Label text="Họ và tên:" />
-                            <TextField prefWidth="200.0" />
+                            <TextField fx:id="txtHoTen" prefWidth="200.0" />
                           </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
@@ -87,24 +87,24 @@
                         <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
                           <children>
                             <Label text="CMND:" />
-                            <TextField prefWidth="200.0" />
+                            <TextField fx:id="txtCMND" prefWidth="200.0" />
                           </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
                           <children>
                             <Label text="Số điện thoại:" />
-                            <TextField prefWidth="200.0" />
+                            <TextField fx:id="txtSDT" prefWidth="200.0" />
                           </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="39.90234375" prefWidth="324.0">
                           <children>
                             <Label text="Quê quán:" />
-                            <TextField prefWidth="200.0" />
+                            <TextField fx:id="txtQueQuan" prefWidth="200.0" />
                           </children>
                         </HBox>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#addNguoiDangKiHandler" prefHeight="38.0" prefWidth="84.0" text="Đăng kí" />
                       </children>
                     </VBox>
-                    <VBox prefHeight="375.0" prefWidth="315.0" />
                   </children>
                 </HBox>
               </children>

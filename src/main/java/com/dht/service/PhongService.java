@@ -6,6 +6,7 @@
 package com.dht.service;
 
 import com.dht.pojo.Phong;
+import com.dht.pojo.SinhVien;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,7 @@ public class PhongService {
         Connection conn = Utils.getConn();
         String sql = "Select * From phong";
         if(kw !=null && !kw.trim().isEmpty())
-            sql += " WHERE idphong like ?";
+            sql += " WHERE tenphong like ?";
         
         PreparedStatement stm = conn.prepareStatement(sql);
         
@@ -63,6 +64,7 @@ public class PhongService {
             conn.setAutoCommit(false);
             String sql = "INSERT INTO phong(idphong, tenphong, loaiphong)" + "Values(?,?,?)";
             PreparedStatement stm = conn.prepareStatement(sql);
+            
             stm.setInt(1,phong.getIdphong());
             stm.setString(2,phong.getTenphong());
             stm.setString(3,phong.getLoaiphong());
@@ -81,12 +83,21 @@ public class PhongService {
         Connection conn = Utils.getConn();
         
         String sql = "DELETE FROM phong WHERE idphong=?";
-        PreparedStatement stm = conn.prepareStatement(sql);
-        stm.setString(1, idPhong);
+         try {
+            conn.setAutoCommit(false);
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, idPhong);
+            if(stm.executeUpdate() == 1);
+            {
+             conn.commit();
+             return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PhongService.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        int row = stm.executeUpdate();
-        
-        return row > 0;
+      return false;
     }
+   
 
 }

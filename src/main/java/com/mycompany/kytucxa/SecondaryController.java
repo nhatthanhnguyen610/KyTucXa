@@ -109,6 +109,14 @@ public class SecondaryController {
         }
     }
     
+      public void loadDanhSachNguoiDangKi(ActionEvent e){
+        
+        try {
+            loadUI("DanhSachNguoiDangKi.fxml");
+        } catch (IOException ex) {
+            Logger.getLogger(SecondaryController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
         
         
