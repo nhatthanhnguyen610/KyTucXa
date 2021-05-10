@@ -28,7 +28,7 @@ public class NguoiDangKiService {
         Connection conn = Utils.getConn();
         String sql = "SELECT * FROM danhsachdangki";
         if(kw!=null && !kw.trim().isEmpty())
-            sql += " Where iddangki like ?";
+            sql += " Where hoten like ?";
         
         PreparedStatement stm = conn.prepareStatement(sql);
         

@@ -39,7 +39,7 @@ import javafx.stage.StageStyle;
  */
 public class ThanhToanController implements Initializable{
     
-    @FXML TextField txtIdHoaDon, txtTienPhong, txtSoDien, txtSoNuoc;
+    @FXML TextField txtTienPhong, txtSoDien, txtSoNuoc;
     @FXML ChoiceBox<SinhVien> choiceBoxSinhVien;
 
     @Override
@@ -50,13 +50,7 @@ public class ThanhToanController implements Initializable{
             Logger.getLogger(ThanhToanController.class.getName()).log(Level.SEVERE, null, ex);
         }
         // listener chi nhap duoc so voi 10 ky ty
-          txtIdHoaDon.textProperty().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
-                if(!newValue.matches("\\d{0,10}"))
-                    txtIdHoaDon.setText(oldValue);
-            }
-        });
+         
           txtTienPhong.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
@@ -97,19 +91,20 @@ public class ThanhToanController implements Initializable{
     
 
     
-    public void addHoaDonHandler() throws SQLException{
-        int idHoaDon = Integer.parseInt(txtIdHoaDon.getText());
-        Double tienDien = Double.parseDouble(txtSoDien.getText()) * 3500;
-        Double tienNuoc = Double.parseDouble(txtSoNuoc.getText()) * 10000;
-        Double tienPhong = Double.parseDouble(txtTienPhong.getText());                                                                                                                                              
+    public void addHoaDonHandler() throws SQLException, IOException{
+                                                                                                                                                     
         
         HoaDon hoadon;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        if(!tienPhong.equals(""))
+        if(!txtSoDien.getText().equals("") && !txtSoNuoc.getText().equals("") && !txtTienPhong.getText().equals("") &&
+                choiceBoxSinhVien.getValue() != null)
        {
-           hoadon = new HoaDon(idHoaDon, tienPhong, tienDien, tienNuoc, choiceBoxSinhVien.getValue());
+            Double tienDien = Double.parseDouble(txtSoDien.getText()) * 3500;
+            Double tienNuoc = Double.parseDouble(txtSoNuoc.getText()) * 10000;
+            Double tienPhong = Double.parseDouble(txtTienPhong.getText()); 
+           hoadon = new HoaDon( tienPhong, tienDien, tienNuoc, choiceBoxSinhVien.getValue());
            if(HoaDonService.addHoaDon(hoadon)== true){
-               alert.setContentText("Thêm thành công");
+               showHoaDon();
                clearHandler();
             }
            else alert.setContentText("Thêm thất bại, kiểm tra lại");
@@ -121,7 +116,6 @@ public class ThanhToanController implements Initializable{
     }
     
      public void clearHandler(){
-        txtIdHoaDon.setText("");
         txtTienPhong.setText("");
         txtSoDien.setText("");
         txtSoNuoc.setText("");

@@ -27,12 +27,12 @@
       <children>
         <VBox alignment="CENTER" layoutX="7.0" layoutY="14.0" prefHeight="471.0" prefWidth="229.0" style="-fx-background-color:#123D5B">
           <children>
-            <Button id="selectNu" mnemonicParsing="false" onAction="#trangDangNhap" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Người quản lí" textFill="WHITE">
+            <Button id="selectNu" mnemonicParsing="false" onAction="#trangDangNhap" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Đăng nhập" textFill="WHITE">
               <font>
                 <Font name="System Bold" size="15.0" fx:id="x1" />
               </font>
             </Button>
-            <Button id="selectNu" font="$x1" mnemonicParsing="false" onAction="#trangDangKy" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Người thuê phòng" textFill="WHITE">
+            <Button id="selectNu" font="$x1" mnemonicParsing="false" onAction="#trangDangKy" prefWidth="201.0" style="-fx-background-color:#0E5883;&#10;-fx-border-color:black;&#10;" text="Đăng kí ở kí túc xá" textFill="WHITE">
               <VBox.margin>
                 <Insets top="5.0" />
               </VBox.margin>

@@ -20,12 +20,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label layoutX="96.0" layoutY="88.0" prefHeight="25.0" prefWidth="92.0" text="ID hóa đơn" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="96.0" layoutY="144.0" prefHeight="25.0" prefWidth="92.0" text="Tền phòng" textAlignment="CENTER">
+            <Label layoutX="96.0" layoutY="144.0" prefHeight="25.0" prefWidth="92.0" text="Tiền phòng" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
@@ -45,9 +40,8 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtIdHoaDon" layoutX="252.0" layoutY="88.0" prefHeight="25.0" prefWidth="273.0" />
             <TextField fx:id="txtTienPhong" layoutX="252.0" layoutY="144.0" prefHeight="25.0" prefWidth="273.0" />
-            <Button defaultButton="true" layoutX="251.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#showHoaDon" text="Xuất hóa đơn" />
+            <Button defaultButton="true" layoutX="251.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#addHoaDonHandler" text="Xuất hóa đơn" />
             <TextField fx:id="txtSoDien" layoutX="252.0" layoutY="200.0" prefHeight="25.0" prefWidth="273.0" />
             <ChoiceBox fx:id="choiceBoxSinhVien" layoutX="252.0" layoutY="308.0" prefHeight="25.0" prefWidth="273.0" />
             <TextField fx:id="txtSoNuoc" layoutX="252.0" layoutY="251.0" prefHeight="25.0" prefWidth="273.0" />

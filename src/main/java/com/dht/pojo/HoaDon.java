@@ -30,6 +30,14 @@ public class HoaDon {
         this.tienNuoc = tienNuoc;
         this.sinhVien = sinhVien;
     }
+    
+    public HoaDon( double tienPhong, 
+            double tienDien, double tienNuoc, SinhVien sinhVien ){
+        this.tienPhong = tienPhong;
+        this.tienDien = tienDien;
+        this.tienNuoc = tienNuoc;
+        this.sinhVien = sinhVien;
+    }
 
     /**
      * @return the idhoadon

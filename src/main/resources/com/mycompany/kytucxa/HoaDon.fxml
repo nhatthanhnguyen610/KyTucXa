@@ -37,8 +37,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button defaultButton="true" layoutX="166.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="OK" />
-      <Button defaultButton="true" layoutX="328.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Cancel" />
+      <Button defaultButton="true" layoutX="270.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="OK" />
       <Label fx:id="lbTienPhong" disable="true" layoutX="235.0" layoutY="158.0" prefHeight="17.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
          <font>
             <Font size="16.0" />

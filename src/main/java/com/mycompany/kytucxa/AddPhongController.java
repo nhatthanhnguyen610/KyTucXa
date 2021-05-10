@@ -20,36 +20,24 @@ import javafx.scene.control.TextField;
  *
  * @author Admin
  */
-public class AddPhongController implements Initializable{
-    @FXML TextField txtIdPhong;
+public class AddPhongController {
     @FXML TextField txtTenPhong;
     @FXML TextField txtLoaiPhong;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-            // listener chi nhap duoc so 10 ky tu
-        txtIdPhong.textProperty().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
-                if(!newValue.matches("\\d{0,10}"))
-                    txtIdPhong.setText(oldValue);
-            }
-        });
-    }
     
     public void addPhongHandler(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Phong phong = new Phong();
         String name = txtTenPhong.getText();
-        String loaiPhong = txtLoaiPhong.getText();        
+        String loaiPhong = txtLoaiPhong.getText();      
+        
         if(!name.equals("")&& !loaiPhong.equals("")){
             phong.setTenphong(name);
             phong.setLoaiphong(loaiPhong);
-            phong.setIdphong(Integer.parseInt(txtIdPhong.getText()));
             if(PhongService.addPhong(phong) == true)
             {
-                
                 alert.setContentText("Đã thêm. Hay refresh lại quản lý phòng");
+                clearHandler();
             }
             else alert.setContentText("Lỗi");
         }
@@ -60,7 +48,6 @@ public class AddPhongController implements Initializable{
     }
     
     public void clearHandler(){
-        txtIdPhong.setText("");
         txtTenPhong.setText("");
         txtLoaiPhong.setText("");
     }

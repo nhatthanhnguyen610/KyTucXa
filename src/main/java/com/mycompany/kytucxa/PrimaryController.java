@@ -81,7 +81,7 @@ public class PrimaryController implements Initializable{
     public void addNguoiDangKiHandler(ActionEvent evt) throws SQLException{
        
        String ten =txtHoTen.getText();      
-       Date ngaySinh =Date.valueOf(datePickerNgaySinh.getValue());      
+           
        String CMND = txtCMND.getText();
        String SDT = txtSDT.getText();
        String queQuan = txtQueQuan.getText();
@@ -89,8 +89,10 @@ public class PrimaryController implements Initializable{
        NguoiDangKi ndk = null;
        Alert alert = new Alert(Alert.AlertType.INFORMATION);
        
-       if(!ten.equals(""))
+       if(!ten.equals("") && !CMND.equals("") && !SDT.equals("") && !queQuan.equals("") 
+               && datePickerNgaySinh.getValue() != null)
        {
+           Date ngaySinh =Date.valueOf(datePickerNgaySinh.getValue());  
            ndk = new NguoiDangKi(ten, ngaySinh, CMND, SDT, queQuan);
            if(NguoiDangKiService.addNguoiDangKi(ndk)== true){
                alert.setContentText("Thêm thành công");

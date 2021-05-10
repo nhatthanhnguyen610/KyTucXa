@@ -21,11 +21,6 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label layoutX="97.0" layoutY="75.0" prefHeight="17.0" prefWidth="63.0" text="ID" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
             <Label layoutX="96.0" layoutY="119.0" prefHeight="17.0" prefWidth="63.0" text="Họ tên" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
@@ -51,7 +46,6 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtId" layoutX="252.0" layoutY="75.0" prefHeight="25.0" prefWidth="310.0" />
             <TextField fx:id="txtTen" layoutX="252.0" layoutY="119.0" prefHeight="25.0" prefWidth="310.0" />
             <DatePicker fx:id="dpNgaySinh" layoutX="251.0" layoutY="205.0" prefHeight="25.0" prefWidth="264.0" />
             <DatePicker fx:id="dpNgayNhanPhong" layoutX="251.0" layoutY="256.0" prefHeight="25.0" prefWidth="264.0" />

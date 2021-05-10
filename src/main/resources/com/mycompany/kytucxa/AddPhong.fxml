@@ -32,12 +32,6 @@
             <TextField fx:id="txtTenPhong" layoutX="252.0" layoutY="173.0" prefHeight="25.0" prefWidth="310.0" />
             <Button defaultButton="true" layoutX="251.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#addPhongHandler" text="Thêm" />
             <TextField fx:id="txtLoaiPhong" layoutX="252.0" layoutY="232.0" prefHeight="25.0" prefWidth="310.0" />
-            <Label layoutX="97.0" layoutY="113.0" prefHeight="25.0" prefWidth="92.0" text="ID" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtIdPhong" layoutX="252.0" layoutY="113.0" prefHeight="25.0" prefWidth="310.0" />
          </children>
       </AnchorPane>
    </children>

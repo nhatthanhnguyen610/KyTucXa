@@ -33,7 +33,7 @@ import javafx.scene.control.TextField;
  */
 public class AddSinhVienController implements Initializable{
     
-    @FXML TextField txtId, txtTen, txtGioiTinh;
+    @FXML TextField  txtTen, txtGioiTinh;
     @FXML DatePicker dpNgaySinh, dpNgayNhanPhong;
     @FXML ChoiceBox<Phong> choicePhong;
 
@@ -45,43 +45,35 @@ public class AddSinhVienController implements Initializable{
             Logger.getLogger(AddSinhVienController.class.getName()).log(Level.SEVERE, null, ex);
         }
         // listener chi nhap duoc so voi 10 ky ty
-          txtId.textProperty().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
-                if(!newValue.matches("\\d{0,10}"))
-                    txtId.setText(oldValue);
-            }
-        });
     }
     
     public void addSinhVienHandler() throws SQLException{
-        int id = Integer.parseInt(txtId.getText());
         String ten = txtTen.getText();
         String gioiTinh = txtGioiTinh.getText();
         
-        Date ngaySinh = Date.valueOf(dpNgaySinh.getValue());
-        Date ngayNhanPhong = Date.valueOf(dpNgayNhanPhong.getValue());
+        
         
         SinhVien sv;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        if(!ten.equals(""))
-       {
-           sv = new SinhVien(id, ten, gioiTinh, ngaySinh, ngayNhanPhong,choicePhong.getValue());
+        if( !ten.equals("") && !gioiTinh.equals("") && dpNgaySinh.getValue() != null &&
+               dpNgayNhanPhong.getValue() != null &&  choicePhong.getValue() != null)
+        {
+            Date ngaySinh = Date.valueOf(dpNgaySinh.getValue());
+            Date ngayNhanPhong = Date.valueOf(dpNgayNhanPhong.getValue());
+           sv = new SinhVien( ten, gioiTinh, ngaySinh, ngayNhanPhong,choicePhong.getValue());
            if(SinhVienService.addSinhVien(sv)== true){
                alert.setContentText("Thêm thành công");
                clearHandler();
             }
            else alert.setContentText("Thêm thất bại, kiểm tra lại ID");
-       } 
-       else
+        } 
+        else{
            alert.setContentText("Nhập thiếu");
+        }
        alert.show();
     }
     
     public void clearHandler(){
-        dpNgaySinh.setValue(LocalDate.EPOCH);
-        dpNgayNhanPhong.setValue(LocalDate.EPOCH);
-        txtId.setText("");
         txtTen.setText("");
         txtGioiTinh.setText("");
     }

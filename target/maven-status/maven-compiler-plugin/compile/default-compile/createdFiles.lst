@@ -16,16 +16,13 @@ com\mycompany\kytucxa\DanhSachNguoiDangKiController$1.class
 com\dht\pojo\Phong.class
 com\dht\service\PhongService.class
 com\mycompany\kytucxa\QuanLyPhongController.class
-com\mycompany\kytucxa\AddPhongController$1.class
 com\mycompany\kytucxa\AddPhongController.class
 com\dht\service\SinhVienService.class
 com\mycompany\kytucxa\App.class
 com\mycompany\kytucxa\ThanhToanController$3.class
 com\mycompany\kytucxa\QuanLySinhVienController$2.class
 com\mycompany\kytucxa\SecondaryController.class
-com\mycompany\kytucxa\AddSinhVienController$1.class
 com\mycompany\kytucxa\DanhSachNguoiDangKiController.class
 com\dht\service\HoaDonService.class
 com\mycompany\kytucxa\AddSinhVienController.class
 com\mycompany\kytucxa\ThanhToanController$1.class
-com\mycompany\kytucxa\ThanhToanController$4.class

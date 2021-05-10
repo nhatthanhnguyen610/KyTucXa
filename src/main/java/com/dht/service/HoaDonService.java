@@ -72,7 +72,7 @@ public class HoaDonService {
       
     public static HoaDon getFirstHoaDon()throws SQLException{
         Connection conn = Utils.getConn();
-        String sql = "Select * From hoadon limit 1";
+        String sql = "Select * From hoadon ORDER BY idhoadon DESC limit 1";
         PreparedStatement stm = conn.prepareStatement(sql);
         ResultSet rs = stm.executeQuery();
         while(rs.next()){  

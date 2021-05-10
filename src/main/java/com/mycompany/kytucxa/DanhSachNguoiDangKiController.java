@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -31,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class DanhSachNguoiDangKiController implements Initializable {
     @FXML TableView<NguoiDangKi> tableNguoiDangKi;
+    @FXML TextField txtFindNguoiDangKi;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,6 +42,13 @@ public class DanhSachNguoiDangKiController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(DanhSachNguoiDangKiController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        txtFindNguoiDangKi.textProperty().addListener(es->{
+            try {
+                loadData(txtFindNguoiDangKi.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(DanhSachNguoiDangKiController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }
     
     public void loadNguoiDangKi(){

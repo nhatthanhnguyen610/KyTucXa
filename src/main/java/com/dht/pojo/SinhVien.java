@@ -44,6 +44,14 @@ public class SinhVien {
         this.ngaysinh = ngaySinh;
         this.ngaynhanphong = ngayNhanPhong;
     }
+    
+    public SinhVien( String name, String gioiTinh, Date ngaySinh, Date ngayNhanPhong, Phong phong){
+        this.tensv = name;
+        this.gioitinh = gioiTinh;
+        this.ngaysinh = ngaySinh;
+        this.ngaynhanphong = ngayNhanPhong;
+        this.phong = phong;
+    }
 
     public int getIdsinhvien() {
         return idsinhvien;
